@@ -19,13 +19,13 @@ function myFunction() {
         let fr2 = new FileReader();
         fr2.readAsText(dictionary.files[0]);
         fr2.onload = function () {
-            dictionaryFileText = fr2.result.replace(/[\r]+/gm, ",").replace(/[\n]+/gm, "").split(",");
+            dictionaryFileText = fr2.result.replace(/[\r]+/gm, ",").replace(/[\n]+/gm, ",").split(",");
 
             let frenchArr = [], englishArr = [];
             for (let i = 0; i < dictionaryFileText.length; i++) {
                 if ((i + 2) % 2 == 0) { englishArr.push(dictionaryFileText[i]); } 
                 else { frenchArr.push(dictionaryFileText[i]); }
-            }
+            }//console.log(frenchArr);
 
             let dictionaryObj = {};
             for (var i = 0; i < englishArr.length; i++) {
@@ -43,13 +43,12 @@ function myFunction() {
 
                 // gettting frequency of translated words
                 let text = "<tr><th>English</th><th>French</th><th>Count</th></tr>";
-                findFileText.forEach(function (englishWord, indexOfEnglishWord) {
+                findFileText.forEach(function (englishWord,indexOfEnglishWord) {
                     let frenchWord = frenchArr[indexOfEnglishWord];
                     let count = inputFileText.match(new RegExp(englishWord,"g")).length;
                     text += `<tr> <td>${englishWord}</td> <td>${frenchWord}</td> <td>${count}<td> </tr>`;
                     document.getElementById("frequency").innerHTML = text;
-                });  
-                let result = (inputFileText!= output)?true:false; console.log(result); // for testing purpose (the translation function is success or failed )
+                });  //let result = (inputFileText!= output)?true:false; console.log(result); // for testing purpose (the translation function is success or failed )
             }
         }
     }
