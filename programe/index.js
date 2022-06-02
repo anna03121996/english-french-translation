@@ -13,7 +13,7 @@ function myFunction() {
     let fr = new FileReader();
     fr.readAsText(upload.files[0]);
     fr.onload = function () {
-        inputFileText = fr.result.toLowerCase().replace(/[\n]+/gm, "<br>"); //console.log(inputFileText);
+        inputFileText = fr.result.toLowerCase(); //console.log(inputFileText);
 
         // get the english and french dictionary
         let fr2 = new FileReader();
@@ -33,7 +33,7 @@ function myFunction() {
             }//console.log(dictionaryObj); 
 
             let output = inputFileText.replace(/(\w+)/g, (value,key)=>dictionaryObj[key]||value);
-             document.getElementById("result").innerHTML = output;
+            document.getElementById("result").innerHTML = output;
             
             // geting words to find with frequency
             let fr3 = new FileReader();
