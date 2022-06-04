@@ -2,8 +2,6 @@ let upload = document.getElementById("upload");
 let inputFileText;
 let dictionary = document.getElementById("dictionary");
 let dictionaryFileText;
-let find = document.getElementById("find");
-let findFileText;
 
 function myFunction() {
 
