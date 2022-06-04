@@ -35,21 +35,15 @@ function myFunction() {
             let output = inputFileText.replace(/(\w+)/g, (value,key)=>dictionaryObj[key]||value);
             document.getElementById("result").innerHTML = output;
             
-            // geting words to find with frequency
-            let fr3 = new FileReader();
-            fr3.readAsText(find.files[0]);
-            fr3.onload = function () {
-                findFileText = fr3.result.split("\n");  //console.log(findFileText);
+            // gettting frequency of translated words
 
-                // gettting frequency of translated words
-                let text = "<tr><th>English</th><th>French</th><th>Count</th></tr>";
-                findFileText.forEach(function (englishWord,indexOfEnglishWord) {
-                    let frenchWord = frenchArr[indexOfEnglishWord];
-                    let count = inputFileText.match(new RegExp(englishWord,"g")).length;
-                    text += `<tr> <td>${englishWord}</td> <td>${frenchWord}</td> <td>${count}<td> </tr>`;
-                    document.getElementById("frequency").innerHTML = text;
-                });  //let result = (inputFileText!= output)?true:false; console.log(result); // for testing purpose (the translation function is success or failed )
-            }
+            let text = "<tr><th>English</th><th>French</th><th>Count</th></tr>";
+            englishArr.forEach(function (englishWord,indexOfEnglishWord) {
+                let frenchWord = frenchArr[indexOfEnglishWord];
+                let count = inputFileText.match(new RegExp(englishWord,"g")).length;
+                text += `<tr> <td>${englishWord}</td> <td>${frenchWord}</td> <td>${count}<td> </tr>`;
+                document.getElementById("frequency").innerHTML = text;
+            });  //let result = (inputFileText!= output)?true:false; console.log(result); // for testing purpose (the translation function is success or failed )
         }
     }
 

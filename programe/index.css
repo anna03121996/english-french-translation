@@ -35,7 +35,7 @@ input:nth-child(3) {
     font-family: 'Verdana', Geneva, Tahoma, sans-serif;
 }
 
-input:nth-child(4) {
+input:nth-child(3) {
     height: 30px;
     width: auto;
     text-align: center;
