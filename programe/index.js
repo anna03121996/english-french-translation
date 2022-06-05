@@ -10,7 +10,7 @@ function translate() {
     Promise.all([
         fetch('t8.shakespeare.txt').then(x => x.text()),
         fetch('french_dictionary.csv').then(x => x.text())
-    ]).then(([input, dictionary, find]) => {
+    ]).then(([input, dictionary]) => {
 
         // modify the text for our requirement
         let inputFileText = input.toLowerCase();
