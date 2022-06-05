@@ -1,7 +1,7 @@
 let startTime = new Date().getTime();
 translate();
 let finishTime = new Date().getTime();
-document.getElementById("time").innerHTML=`Time taken to process  ${(finishTime - startTime)} Milli Seconds`;
+document.getElementById("time").innerHTML=`Time taken to process  ${(finishTime - startTime)/1000} Seconds`;
 document.getElementById("memory").innerHTML=` Memory taken to process ${(performance.memory.usedJSHeapSize) / 1024 / 1024}`;
 
 function translate() {
