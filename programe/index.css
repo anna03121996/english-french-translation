@@ -7,44 +7,8 @@ body>h1 {
     text-align: center;
 }
 
-form {
-    text-align: center;
-    margin-top: 50px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-bottom: 50px;
-}
-
-label{
-    background-color: rgba(234, 170, 30, 0.737);
-    padding: 10px 20px 25px 20px;
-    border-radius: 10px;
-}
-
-input:nth-child(1),
-input:nth-child(2),
-input:nth-child(3) {
-    padding: 10px 20px 10px 20px;
-    height: 25px;
-    width: auto;
-    text-align: center;
-    border: none;
-    background-color: rgb(208, 153, 51);
-    border-radius: 5px;
-    font-family: 'Verdana', Geneva, Tahoma, sans-serif;
-}
-
-input:nth-child(3) {
-    height: 30px;
-    width: auto;
-    text-align: center;
-    border: none;
-    background-color: orange;
-    border-radius: 10px;
-}
-
 #main {
+    margin-top: 5%;
     display: flex;
     justify-content: space-around;
     align-items: center;
