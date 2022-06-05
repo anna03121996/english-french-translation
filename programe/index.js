@@ -19,16 +19,15 @@ function translate() {
         let findWordsFileText = find.replace(/[\n]+/gm, ",").split(",");;
 
         // creating dictionary object
-        let frenchArr = [], englishArr = [];
+        let frenchArr = [], englishArr = [],dictionaryObj = {};
         for (let i = 0; i < dictionaryFileText.length; i++) {
             if ((i + 2) % 2 == 0) { englishArr.push(dictionaryFileText[i]); }
             else { frenchArr.push(dictionaryFileText[i]); }
         }
 
-        let dictionaryObj = {};
         for (var i = 0; i < englishArr.length; i++) {
             dictionaryObj[englishArr[i]] = frenchArr[i];
-        }//console.log(dictionaryObj); 
+        }//console.log(dictionaryObj);
 
         // replace the english to french using the dictionary
         let output = inputFileText.replace(/(\w+)/g, (value, key) => dictionaryObj[key] || value);
