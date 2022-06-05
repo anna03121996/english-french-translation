@@ -9,14 +9,12 @@ function translate() {
     // read all text files
     Promise.all([
         fetch('t8.shakespeare.txt').then(x => x.text()),
-        fetch('french_dictionary.csv').then(x => x.text()),
-        fetch('find_words.txt').then(x => x.text())
+        fetch('french_dictionary.csv').then(x => x.text())
     ]).then(([input, dictionary, find]) => {
 
         // modify the text for our requirement
         let inputFileText = input.toLowerCase();
-        let dictionaryFileText = dictionary.replace(/[\r\n]+/gm, ",").split(",");;
-        let findWordsFileText = find.replace(/[\n]+/gm, ",").split(",");;
+        let dictionaryFileText = dictionary.replace(/[\r\n]+/gm, ",").split(",");
 
         // creating dictionary object
         let frenchArr = [], englishArr = [],dictionaryObj = {};
@@ -35,7 +33,7 @@ function translate() {
 
         // getting frequency of each words
         let text = "<tr><th> &#160; English</th><th>French</th><th>Count</th></tr>";
-        findWordsFileText.forEach(function (englishWord, indexOfEnglishWord) {
+        englishArr.forEach(function (englishWord, indexOfEnglishWord) {
             let frenchWord = frenchArr[indexOfEnglishWord];
             let count = inputFileText.match(new RegExp(englishWord, "g")).length;
             text += `<tr> <td> &#160; ${englishWord}</td> <td>${frenchWord}</td> <td>${count}<td> </tr>`;
