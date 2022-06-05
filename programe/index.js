@@ -31,7 +31,7 @@ function translate() {
         let output = inputFileText.replace(/(\w+)/g, (value, key) => dictionaryObj[key] || value);
         document.getElementById("result").innerHTML = output;
 
-        // getting frequency of each words
+        // count of replaced words
         let text = "<tr><th> &#160; English</th><th>French</th><th>Count</th></tr>";
         englishArr.forEach(function (englishWord, indexOfEnglishWord) {
             let frenchWord = frenchArr[indexOfEnglishWord];
