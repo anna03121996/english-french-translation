@@ -9,13 +9,15 @@ function translate() {
     // read all text files
     Promise.all([
         fetch('t8.shakespeare.txt').then(x => x.text()),
-        fetch('french_dictionary.csv').then(x => x.text())
-    ]).then(([input, dictionary]) => {
+        fetch('french_dictionary.csv').then(x => x.text()),
+        fetch('find_words.txt').then(x => x.text())
+    ]).then(([input, dictionary, find]) => {
 
         // modify the text for our requirement
         let inputFileText = input.toLowerCase();
         let dictionaryFileText = dictionary.replace(/[\r\n]+/gm, ",").split(",");
-
+        let findWords = find.replace(/[\n]+/gm, ",").split(",");
+        
         // creating dictionary object
         let frenchArr = [], englishArr = [],dictionaryObj = {};
         for (let i = 0; i < dictionaryFileText.length; i++) {
@@ -33,7 +35,7 @@ function translate() {
 
         // count of replaced words
         let text = "<tr><th> &#160; English</th><th>French</th><th>Count</th></tr>";
-        englishArr.forEach(function (englishWord, indexOfEnglishWord) {
+        findWords.forEach(function (englishWord, indexOfEnglishWord) {
             let frenchWord = frenchArr[indexOfEnglishWord];
             let count = inputFileText.match(new RegExp(englishWord, "g")).length;
             text += `<tr> <td> &#160; ${englishWord}</td> <td>${frenchWord}</td> <td>${count}<td> </tr>`;
